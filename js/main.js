@@ -1,65 +1,86 @@
-// Year
-document.querySelector("#year").textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", () => {
+  // Footer year
+  const yearEl = document.querySelector("#year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Modal logic
-const modal = document.querySelector("#caseModal");
-const closeTargets = () => modal.querySelectorAll("[data-close]");
-const caseButtons = document.querySelectorAll("[data-case]");
+  // Case data
+  const CASES = {
+    parrilla: {
+      title: "Parrilla Argentina",
+      text: "Bilingual restaurant landing designed for conversions: clear menu structure, high-impact hero, and frictionless contact flow.",
+      scope: "UX/UI · Landing · Content system",
+      outcome: "Stronger CTA hierarchy + clearer menu discovery",
+      stack: "HTML · CSS · JS",
+    },
+    barber: {
+      title: "Barber Studio",
+      text: "Premium booking-focused layout: service clarity, trust cues, and a fast path to appointment intent.",
+      scope: "UX/UI · Website · Interaction",
+      outcome: "Higher perceived value + smoother user flow",
+      stack: "HTML · CSS · JS",
+    },
+  };
 
-const data = {
-  parrilla: {
-    title: "Parrilla Argentina",
-    text: "Bilingual restaurant landing focused on conversion and clarity.",
-    scope: "UX/UI + Frontend",
-    outcome: "Higher bookings + premium positioning",
-    stack: "HTML / CSS / JS",
-  },
-  barber: {
-    title: "Barber Studio",
-    text: "Booking-focused site with service filtering and mobile-first UX.",
-    scope: "UX/UI + Frontend",
-    outcome: "More leads via WhatsApp + clearer services",
-    stack: "HTML / CSS / JS",
-  },
-};
+  // Elements
+  const modal = document.getElementById("caseModal");
+  if (!modal) return;
 
-function openModal(caseId) {
-  const payload = data[caseId];
-  if (!payload) return;
+  const titleEl = document.getElementById("modalTitle");
+  const textEl = document.getElementById("modalText");
+  const scopeEl = document.getElementById("modalScope");
+  const outcomeEl = document.getElementById("modalOutcome");
+  const stackEl = document.getElementById("modalStack");
 
-  modal.hidden = false;
-  modal.setAttribute("aria-hidden", "false");
+  let lastActiveEl = null;
 
-  document.querySelector("#modalTitle").textContent = payload.title;
-  document.querySelector("#modalText").textContent = payload.text;
-  document.querySelector("#modalScope").textContent = payload.scope;
-  document.querySelector("#modalOutcome").textContent = payload.outcome;
-  document.querySelector("#modalStack").textContent = payload.stack;
+  function openModal(key) {
+    const data = CASES[key];
+    if (!data) return;
 
-  // opcional: lock scroll
-  document.documentElement.style.overflow = "hidden";
-}
+    lastActiveEl = document.activeElement;
 
-function closeModal() {
-  modal.setAttribute("aria-hidden", "true");
-  modal.hidden = true;
-  document.documentElement.style.overflow = "";
-}
+    titleEl.textContent = data.title;
+    textEl.textContent = data.text;
+    scopeEl.textContent = data.scope;
+    outcomeEl.textContent = data.outcome;
+    stackEl.textContent = data.stack;
 
-caseButtons.forEach((btn) => {
-  btn.addEventListener("click", () => openModal(btn.dataset.case));
-});
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
 
-closeTargets().forEach((el) => {
-  el.addEventListener("click", closeModal);
-});
+    // Lock scroll
+    document.documentElement.style.overflow = "hidden";
 
-document.addEventListener("keydown", (e) => {
-  if (
-    e.key === "Escape" &&
-    modal &&
-    modal.getAttribute("aria-hidden") === "false"
-  ) {
-    closeModal();
+    // Focus close button for accessibility
+    const closeBtn = modal.querySelector(".modal__close");
+    if (closeBtn) closeBtn.focus();
   }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.documentElement.style.overflow = "";
+
+    // Return focus
+    if (lastActiveEl && typeof lastActiveEl.focus === "function") {
+      lastActiveEl.focus();
+    }
+  }
+
+  // Open buttons
+  document.querySelectorAll("[data-case]").forEach((btn) => {
+    btn.addEventListener("click", () => openModal(btn.dataset.case));
+  });
+
+  // Close targets
+  modal.querySelectorAll("[data-close]").forEach((el) => {
+    el.addEventListener("click", closeModal);
+  });
+
+  // ESC closes
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) {
+      closeModal();
+    }
+  });
 });
