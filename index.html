@@ -22,14 +22,11 @@
       <section class="hero">
         <div class="container hero__inner">
           <p class="hero__kicker">COREXA STUDIO</p>
-
           <h1 class="hero__title">Digital systems for modern businesses.</h1>
-
           <p class="hero__subtitle">
             We design and develop scalable digital platforms built for
             performance and long-term growth.
           </p>
-
           <div class="hero__actions">
             <a href="#contact" class="btn btn--primary">Start a project</a>
           </div>
@@ -98,6 +95,46 @@
           >
         </div>
       </section>
+
+      <section class="section section--surface">
+        <div class="container">
+          <div class="section__head">
+            <p class="section__label">Selected Work</p>
+            <h2 class="section__title">Digital products built for impact.</h2>
+            <p class="section__text">
+              We design and engineer scalable platforms for ambitious teams.
+            </p>
+          </div>
+
+          <div class="projects">
+            <article class="project">
+              <div class="project__media"></div>
+              <div class="project__content">
+                <h3 class="project__title">Parrilla Argentina</h3>
+                <p class="project__meta">Restaurant Platform · 2026</p>
+                <button
+                  class="project__link"
+                  type="button"
+                  data-case="parrilla"
+                >
+                  View case →
+                </button>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="project__media"></div>
+              <div class="project__content">
+                <h3 class="project__title">Barber Studio</h3>
+                <p class="project__meta">Booking System · 2026</p>
+                <button class="project__link" type="button" data-case="barber">
+                  View case →
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
@@ -107,6 +144,47 @@
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- Modal (antes del script) -->
+    <div class="modal" id="caseModal" aria-hidden="true" hidden>
+      <div class="modal__backdrop" data-close></div>
+
+      <div
+        class="modal__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button
+          class="modal__close"
+          type="button"
+          data-close
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
+        <p class="modal__kicker" id="modalKicker">Case Study</p>
+        <h3 class="modal__title" id="modalTitle">Title</h3>
+        <p class="modal__text" id="modalText">Text</p>
+
+        <div class="modal__grid">
+          <div class="modal__item">
+            <p class="modal__label">Scope</p>
+            <p class="modal__value" id="modalScope">—</p>
+          </div>
+          <div class="modal__item">
+            <p class="modal__label">Outcome</p>
+            <p class="modal__value" id="modalOutcome">—</p>
+          </div>
+          <div class="modal__item">
+            <p class="modal__label">Stack</p>
+            <p class="modal__value" id="modalStack">—</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script al final + defer -->
+    <script defer src="js/main.js"></script>
   </body>
 </html>

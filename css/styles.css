@@ -1,43 +1,84 @@
 :root {
-  --dark: #0f1115;
-  --light: #ffffff;
-  --text-dark: #111111;
-  --text-light: #f5f7fa;
-  --muted: #6b7280;
-  --soft: #f7f8fa;
-  --line: rgba(17, 17, 17, 0.12);
-  --accent: #4f8cff;
+  /* =========================
+     COREXA Tokens (Dark Tech)
+  ========================= */
 
+  /* Base */
+  --color-bg: #0f1115;
+  --color-surface: #141821;
+  --color-surface-2: rgba(255, 255, 255, 0.03);
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  /* Text */
+  --color-text-primary: #f5f7fa;
+  --color-text-secondary: #9aa3b2;
+
+  /* Accent */
+  --color-accent: #4f8cff;
+  --color-accent-hover: #3c76e0;
+
+  /* Layout */
   --radius: 16px;
-  --max: 1120px;
+  --max-width: 1120px;
 
-  /* ritmo premium */
-  --space-lg: 140px;
-  --space-md: 96px;
+  /* Spacing scale */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 80px;
+
+  /* Section rhythm */
   --space-sm: 56px;
+  --space-md: 88px;
+  --space-lg: 120px;
+
+  /* Reading width */
+  --reading: 72ch;
+
+  /* =========================
+     Compat aliases
+     (si tu HTML/CSS viejo usa --bg, etc.)
+  ========================= */
+  --bg: var(--color-bg);
+  --text: var(--color-text-primary);
+  --muted: var(--color-text-secondary);
+  --soft: var(--color-surface);
+  --line: var(--color-border);
+
+  --accent: var(--color-accent);
+  --max: var(--max-width);
 }
 
+/* =========================
+   Base
+========================= */
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family:
-    ui-sans-serif,
+    "Inter",
     system-ui,
     -apple-system,
     Segoe UI,
     Roboto,
-    Helvetica,
     Arial,
     sans-serif;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.55;
-  color: var(--text-dark);
-  background: var(--light);
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -50,38 +91,55 @@ a {
   margin: 0 auto;
 }
 
-/* Header */
+/* =========================
+   Header (Dark)
+========================= */
 .header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(15, 17, 21, 0.78);
   border-bottom: 1px solid var(--line);
 }
+
+@supports (
+  (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))
+) {
+  .header {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: rgba(15, 17, 21, 0.62);
+  }
+}
+
 .header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 18px 0;
 }
+
 .brand {
   font-weight: 800;
   letter-spacing: 0.6px;
 }
+
 .navlink {
   color: var(--muted);
 }
 .navlink:hover {
-  color: var(--text-dark);
+  color: var(--text);
 }
 
-/* Buttons */
+/* =========================
+   Buttons
+========================= */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 14px 22px;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: 600;
   border: 1px solid transparent;
   transition:
@@ -89,33 +147,50 @@ a {
     opacity 0.18s ease,
     background 0.18s ease;
 }
+
 .btn--primary {
   background: var(--accent);
-  color: white;
+  color: #ffffff;
 }
 .btn--primary:hover {
+  background: var(--color-accent-hover);
   transform: translateY(-2px);
-  opacity: 0.92;
+  opacity: 0.98;
 }
 
-/* Hero (A: ultra minimal) */
+/* (opcional si usás botón secundario) */
+.btn--ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--text);
+}
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* =========================
+   Hero
+========================= */
 .hero {
-  background: var(--dark);
-  color: var(--text-light);
+  background: var(--bg);
+  color: var(--text);
   min-height: 90vh;
   display: flex;
   align-items: center;
   padding: var(--space-md) 0;
 }
+
 .hero__inner {
   max-width: 900px;
 }
+
 .hero__kicker {
   margin: 0 0 18px;
   color: rgba(245, 247, 250, 0.65);
   letter-spacing: 2px;
   font-size: 13px;
 }
+
 .hero__title {
   margin: 0 0 20px;
   font-size: clamp(42px, 6vw, 74px);
@@ -123,112 +198,196 @@ a {
   font-weight: 650;
   letter-spacing: -1px;
 }
+
 .hero__subtitle {
   margin: 0 0 34px;
-  color: rgba(245, 247, 250, 0.7);
+  color: rgba(245, 247, 250, 0.72);
   max-width: 66ch;
   font-size: 18px;
 }
+
 .hero__actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-/* Sections */
+/* =========================
+   Sections
+========================= */
 .section {
   padding: var(--space-lg) 0;
 }
-.section--light {
-  background: var(--light);
-  color: var(--text-dark);
-}
-.section--soft {
-  background: var(--soft);
-  border-top: 1px solid rgba(17, 17, 17, 0.06);
-  border-bottom: 1px solid rgba(17, 17, 17, 0.06);
-}
-.section--dark {
-  background: var(--dark);
-  color: var(--text-light);
+
+/* Si querés alternar fondos, usá estos modifiers en el HTML */
+.section--surface {
+  background: var(--color-surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .section__head {
   margin-bottom: 28px;
 }
+
 .section__label {
   margin: 0 0 10px;
   color: var(--muted);
   letter-spacing: 0.3px;
   font-size: 14px;
 }
+
 .section__title {
   margin: 0;
   font-size: clamp(26px, 2.8vw, 40px);
   letter-spacing: -0.6px;
 }
+
 .section__text {
-  margin: 0 0 40px;
+  margin: 14px 0 40px;
   color: var(--muted);
-  max-width: 72ch;
+  max-width: var(--reading);
 }
 
-/* Grid / Cards */
+/* =========================
+   Grid / Cards (Dark)
+========================= */
 .grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
+
 .card {
-  background: white;
-  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: var(--color-surface-2);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 22px;
 }
+
 .card__title {
   margin: 0 0 10px;
   font-size: 18px;
+  color: var(--text);
 }
+
 .card__text {
   margin: 0;
   color: var(--muted);
 }
 
-/* Steps */
+/* =========================
+   Projects
+========================= */
+
+.projects {
+  display: grid;
+  gap: 32px;
+}
+
+.project {
+  background: var(--color-surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    border 0.25s ease;
+}
+
+.project:hover {
+  transform: translateY(-6px);
+  border-color: rgba(79, 140, 255, 0.4);
+}
+
+.project__media {
+  height: 280px;
+  background: linear-gradient(
+    135deg,
+    rgba(79, 140, 255, 0.15),
+    rgba(79, 140, 255, 0.05)
+  );
+  border-bottom: 1px solid var(--line);
+}
+
+.project__content {
+  padding: 24px;
+}
+
+.project__title {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.project__meta {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.project__link {
+  font-weight: 600;
+  color: var(--accent);
+}
+.project__link:hover {
+  opacity: 0.8;
+}
+
+.project__link {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* =========================
+   Steps (Dark pills)
+========================= */
 .steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
+
 .step {
   padding: 16px 14px;
-  border: 1px solid rgba(17, 17, 17, 0.1);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: white;
+  background: rgba(255, 255, 255, 0.02);
   text-align: center;
   font-weight: 600;
-  color: #111;
+  color: var(--text);
 }
 
-/* Contact */
+/* =========================
+   Contact
+========================= */
 .contact {
   max-width: 900px;
 }
+
 .contact__title {
   margin: 0 0 12px;
   font-size: clamp(28px, 3.2vw, 44px);
   letter-spacing: -0.6px;
 }
+
 .contact__text {
   margin: 0 0 24px;
-  color: rgba(245, 247, 250, 0.7);
+  color: rgba(245, 247, 250, 0.72);
+  max-width: var(--reading);
 }
 
-/* Footer */
+/* =========================
+   Footer
+========================= */
 .footer {
-  border-top: 1px solid rgba(17, 17, 17, 0.1);
+  border-top: 1px solid var(--line);
   padding: 22px 0;
+  background: rgba(255, 255, 255, 0.01);
 }
+
 .footer__inner {
   display: flex;
   justify-content: space-between;
@@ -238,17 +397,130 @@ a {
   font-size: 13px;
 }
 
-/* Responsive */
+/* =========================
+   Responsive
+========================= */
 @media (max-width: 900px) {
   :root {
-    --space-lg: 100px;
-    --space-md: 78px;
+    --space-lg: 96px;
+    --space-md: 76px;
     --space-sm: 52px;
   }
+
   .grid3 {
     grid-template-columns: 1fr;
   }
+
   .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Modal (Case Studies)
+========================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: none;
+}
+
+.modal.is-open {
+  display: block;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 17, 21, 0.72);
+}
+
+.modal__panel {
+  position: relative;
+  width: min(720px, calc(100% - 32px));
+  margin: 10vh auto 0;
+  background: rgba(20, 24, 33, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+@supports (
+  (-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))
+) {
+  .modal__panel {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.modal__kicker {
+  margin: 0 0 10px;
+  color: rgba(245, 247, 250, 0.65);
+  letter-spacing: 2px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.modal__title {
+  margin: 0 0 10px;
+  font-size: 26px;
+  letter-spacing: -0.4px;
+}
+
+.modal__text {
+  margin: 0 0 18px;
+  color: rgba(245, 247, 250, 0.72);
+  max-width: 64ch;
+}
+
+.modal__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.modal__item {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.modal__label {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+.modal__value {
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .modal__panel {
+    margin-top: 7vh;
+    padding: 20px;
+  }
+  .modal__grid {
     grid-template-columns: 1fr;
   }
 }
