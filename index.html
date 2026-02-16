@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COREXA Studio — Digital systems for modern businesses</title>
+    <title data-i18n="meta.title">
+      COREXA Studio — Digital systems for modern businesses
+    </title>
     <meta
       name="description"
       content="COREXA Studio designs and develops scalable digital platforms built for performance and long-term growth."
+      data-i18n-attr="content"
+      data-i18n="meta.description"
     />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
@@ -14,24 +18,67 @@
   <body>
     <header class="header">
       <div class="container header__inner">
-        <a class="brand" href="#">COREXA</a>
-        <a class="navlink" href="#contact">Contact</a>
+        <a class="brand" href="#" data-i18n="brand">COREXA</a>
+
+        <div class="header__actions">
+          <a class="navlink" href="#contact" data-i18n="nav.contact">Contact</a>
+          <button
+            class="langbtn"
+            type="button"
+            id="langToggle"
+            aria-label="Toggle language"
+          >
+            ES
+          </button>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="hero">
         <div class="container hero__inner">
-          <p class="hero__kicker">COREXA STUDIO</p>
-          <h1 class="hero__title">Digital systems for modern businesses.</h1>
-          <p class="hero__subtitle">
+          <p class="hero__kicker" data-i18n="hero.kicker">COREXA STUDIO</p>
+          <h1 class="hero__title" data-i18n="hero.title">
+            Digital systems for modern businesses.
+          </h1>
+          <p class="hero__subtitle" data-i18n="hero.subtitle">
             We design and develop scalable digital platforms built for
             performance and long-term growth.
           </p>
 
           <div class="hero__actions">
-            <a href="#contact" class="btn btn--primary">Start a project</a>
-            <a href="#work" class="btn btn--ghost">View work</a>
+            <a
+              href="#contact"
+              class="btn btn--primary"
+              data-i18n="hero.ctaPrimary"
+              >Start a project</a
+            >
+            <a href="#work" class="btn btn--ghost" data-i18n="hero.ctaSecondary"
+              >View work</a
+            >
+
+            <section class="positioning-section">
+              <div class="positioning">
+                <h2 class="positioning__title" data-i18n="positioning.title">
+                  Structured thinking.<br />
+                  Built to scale.
+                </h2>
+
+                <p class="positioning__text" data-i18n="positioning.subtitle">
+                  Strategy-first systems that turn clarity into growth.
+                </p>
+
+                <ul class="positioning__list">
+                  <li data-i18n="positioning.point1">Conversion-focused UX</li>
+                  <li data-i18n="positioning.point2">
+                    Fast, maintainable builds
+                  </li>
+                  <li data-i18n="positioning.point3">
+                    Clean handoff + long-term support
+                  </li>
+                </ul>
+              </div>
+            </section>
           </div>
         </div>
       </section>
@@ -39,11 +86,11 @@
       <section class="section section--surface">
         <div class="container">
           <div class="section__head">
-            <p class="section__label">What we do</p>
-            <h2 class="section__title">
+            <p class="section__label" data-i18n="what.label">What we do</p>
+            <h2 class="section__title" data-i18n="what.title">
               High-performance platforms designed to scale.
             </h2>
-            <p class="section__text">
+            <p class="section__text" data-i18n="what.text">
               We partner with growing businesses to design and build digital
               systems that support real growth.
             </p>
@@ -51,18 +98,26 @@
 
           <div class="grid3">
             <div class="card">
-              <h3 class="card__title">Digital Platform Engineering</h3>
-              <p class="card__text">Scalable, fast, and reliable web builds.</p>
+              <h3 class="card__title" data-i18n="services.0.title">
+                Digital Platform Engineering
+              </h3>
+              <p class="card__text" data-i18n="services.0.text">
+                Scalable, fast, and reliable web builds.
+              </p>
             </div>
             <div class="card">
-              <h3 class="card__title">UX/UI Systems Design</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="services.1.title">
+                UX/UI Systems Design
+              </h3>
+              <p class="card__text" data-i18n="services.1.text">
                 Clear interfaces that feel premium and convert.
               </p>
             </div>
             <div class="card">
-              <h3 class="card__title">Automation & Integration</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="services.2.title">
+                Automation & Integration
+              </h3>
+              <p class="card__text" data-i18n="services.2.text">
                 Workflows and integrations that reduce friction.
               </p>
             </div>
@@ -73,19 +128,21 @@
       <section class="section section--surface">
         <div class="container">
           <div class="section__head">
-            <p class="section__label">Approach</p>
-            <h2 class="section__title">Structured, end-to-end execution.</h2>
-            <p class="section__text">
+            <p class="section__label" data-i18n="approach.label">Approach</p>
+            <h2 class="section__title" data-i18n="approach.title">
+              Structured, end-to-end execution.
+            </h2>
+            <p class="section__text" data-i18n="approach.text">
               Strategy → System design → Development → Optimization. Clear
               steps, tight delivery.
             </p>
           </div>
 
           <div class="steps">
-            <div class="step">Strategy</div>
-            <div class="step">System Design</div>
-            <div class="step">Development</div>
-            <div class="step">Optimization</div>
+            <div class="step" data-i18n="approach.steps.0">Strategy</div>
+            <div class="step" data-i18n="approach.steps.1">System Design</div>
+            <div class="step" data-i18n="approach.steps.2">Development</div>
+            <div class="step" data-i18n="approach.steps.3">Optimization</div>
           </div>
         </div>
       </section>
@@ -93,9 +150,11 @@
       <section id="work" class="section section--surface">
         <div class="container">
           <div class="section__head">
-            <p class="section__label">Selected Work</p>
-            <h2 class="section__title">Digital products built for impact.</h2>
-            <p class="section__text">
+            <p class="section__label" data-i18n="work.label">Selected Work</p>
+            <h2 class="section__title" data-i18n="work.title">
+              Digital products built for impact.
+            </h2>
+            <p class="section__text" data-i18n="work.text">
               We design and engineer scalable platforms for ambitious teams.
             </p>
           </div>
@@ -104,12 +163,35 @@
             <article class="project">
               <div class="project__media"></div>
               <div class="project__content">
-                <h3 class="project__title">Parrilla Argentina</h3>
-                <p class="project__meta">Restaurant Platform · 2026</p>
+                <h3 class="project__title" data-i18n="cases.parrilla.title">
+                  Parrilla Argentina
+                </h3>
+                <p class="project__meta" data-i18n="cases.parrilla.meta">
+                  Restaurant Platform · 2026
+                </p>
+
+                <p class="project__summary" data-i18n="cases.parrilla.summary">
+                  Bilingual restaurant landing focused on menu discovery and
+                  bookings.
+                </p>
+
+                <div class="project__tags">
+                  <span class="tag" data-i18n="cases.parrilla.tags.0"
+                    >UX/UI</span
+                  >
+                  <span class="tag" data-i18n="cases.parrilla.tags.1"
+                    >Conversion</span
+                  >
+                  <span class="tag" data-i18n="cases.parrilla.tags.2"
+                    >Bilingual</span
+                  >
+                </div>
+
                 <button
                   class="project__link"
                   type="button"
                   data-case="parrilla"
+                  data-i18n="work.viewCase"
                 >
                   View case →
                 </button>
@@ -119,9 +201,34 @@
             <article class="project">
               <div class="project__media"></div>
               <div class="project__content">
-                <h3 class="project__title">Barber Studio</h3>
-                <p class="project__meta">Booking System · 2026</p>
-                <button class="project__link" type="button" data-case="barber">
+                <h3 class="project__title" data-i18n="cases.barber.title">
+                  Barber Studio
+                </h3>
+                <p class="project__meta" data-i18n="cases.barber.meta">
+                  Booking System · 2026
+                </p>
+
+                <p class="project__summary" data-i18n="cases.barber.summary">
+                  Booking-first experience designed to increase appointment
+                  intent.
+                </p>
+
+                <div class="project__tags">
+                  <span class="tag" data-i18n="cases.barber.tags.0">UX/UI</span>
+                  <span class="tag" data-i18n="cases.barber.tags.1"
+                    >Booking Flow</span
+                  >
+                  <span class="tag" data-i18n="cases.barber.tags.2"
+                    >Mobile-first</span
+                  >
+                </div>
+
+                <button
+                  class="project__link"
+                  type="button"
+                  data-case="barber"
+                  data-i18n="work.viewCase"
+                >
                   View case →
                 </button>
               </div>
@@ -132,25 +239,33 @@
 
       <section id="contact" class="section section--dark">
         <div class="container contact">
-          <h2 class="contact__title">Let’s build something scalable.</h2>
-          <p class="contact__text">
+          <h2 class="contact__title" data-i18n="contact.title">
+            Let’s build something scalable.
+          </h2>
+          <p class="contact__text" data-i18n="contact.text">
             Reach out by email. We reply within 24–48 hours.
           </p>
-          <a class="btn btn--primary" href="mailto:hello@corexastudio.com"
-            >Start a project</a
+          <a
+            class="btn btn--primary"
+            href="mailto:hello@corexastudio.com"
+            data-i18n="contact.cta"
           >
+            Start a project
+          </a>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="container footer__inner">
-        <p>© <span id="year"></span> COREXA Studio</p>
-        <p>Digital partner premium</p>
+        <p>
+          © <span id="year"></span>
+          <span data-i18n="footer.brand">COREXA Studio</span>
+        </p>
+        <p data-i18n="footer.tagline">Digital partner premium</p>
       </div>
     </footer>
 
-    <!-- Modal (Case Study) -->
     <div class="modal" id="caseModal" aria-hidden="true">
       <div class="modal__backdrop" data-close></div>
 
@@ -169,21 +284,23 @@
           ✕
         </button>
 
-        <p class="modal__kicker" id="modalKicker">Case Study</p>
+        <p class="modal__kicker" id="modalKicker" data-i18n="modal.kicker">
+          Case Study
+        </p>
         <h3 class="modal__title" id="modalTitle">Title</h3>
         <p class="modal__text" id="modalText">Text</p>
 
         <div class="modal__grid">
           <div class="modal__item">
-            <p class="modal__label">Scope</p>
+            <p class="modal__label" data-i18n="modal.scope">Scope</p>
             <p class="modal__value" id="modalScope">—</p>
           </div>
           <div class="modal__item">
-            <p class="modal__label">Outcome</p>
+            <p class="modal__label" data-i18n="modal.outcome">Outcome</p>
             <p class="modal__value" id="modalOutcome">—</p>
           </div>
           <div class="modal__item">
-            <p class="modal__label">Stack</p>
+            <p class="modal__label" data-i18n="modal.stack">Stack</p>
             <p class="modal__value" id="modalStack">—</p>
           </div>
         </div>
