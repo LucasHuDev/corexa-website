@@ -3,16 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title data-i18n="meta.title">
       COREXA Studio — Digital systems for modern businesses
     </title>
+
     <meta
       name="description"
       content="COREXA Studio designs and develops scalable digital platforms built for performance and long-term growth."
       data-i18n-attr="content"
       data-i18n="meta.description"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- SEO / Social -->
+    <link rel="canonical" href="https://corexastudio.com/" />
+    <meta name="theme-color" content="#0b0f17" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://corexastudio.com/" />
+    <meta
+      property="og:title"
+      content="COREXA Studio — Digital systems for modern businesses"
+    />
+    <meta
+      property="og:description"
+      content="COREXA Studio designs and develops scalable digital platforms built for performance and long-term growth."
+    />
+    <meta
+      property="og:image"
+      content="https://corexastudio.com/assets/og.jpg"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="COREXA Studio — Digital systems for modern businesses"
+    />
+    <meta
+      name="twitter:description"
+      content="COREXA Studio designs and develops scalable digital platforms built for performance and long-term growth."
+    />
+    <meta
+      name="twitter:image"
+      content="https://corexastudio.com/assets/og.jpg"
+    />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="stylesheet" href="css/styles.css?v=1" />
   </head>
 
   <body>
@@ -38,9 +81,11 @@
       <section class="hero">
         <div class="container hero__inner">
           <p class="hero__kicker" data-i18n="hero.kicker">COREXA STUDIO</p>
+
           <h1 class="hero__title" data-i18n="hero.title">
             Digital systems for modern businesses.
           </h1>
+
           <p class="hero__subtitle" data-i18n="hero.subtitle">
             We design and develop scalable digital platforms built for
             performance and long-term growth.
@@ -56,30 +101,30 @@
             <a href="#work" class="btn btn--ghost" data-i18n="hero.ctaSecondary"
               >View work</a
             >
-
-            <section class="positioning-section">
-              <div class="positioning">
-                <h2 class="positioning__title" data-i18n="positioning.title">
-                  Structured thinking.<br />
-                  Built to scale.
-                </h2>
-
-                <p class="positioning__text" data-i18n="positioning.subtitle">
-                  Strategy-first systems that turn clarity into growth.
-                </p>
-
-                <ul class="positioning__list">
-                  <li data-i18n="positioning.point1">Conversion-focused UX</li>
-                  <li data-i18n="positioning.point2">
-                    Fast, maintainable builds
-                  </li>
-                  <li data-i18n="positioning.point3">
-                    Clean handoff + long-term support
-                  </li>
-                </ul>
-              </div>
-            </section>
           </div>
+
+          <section class="positioning-section">
+            <div class="positioning">
+              <h2 class="positioning__title" data-i18n="positioning.title">
+                Structured thinking.<br />
+                Built to scale.
+              </h2>
+
+              <p class="positioning__text" data-i18n="positioning.subtitle">
+                Strategy-first systems that turn clarity into growth.
+              </p>
+
+              <ul class="positioning__list">
+                <li data-i18n="positioning.point1">Conversion-focused UX</li>
+                <li data-i18n="positioning.point2">
+                  Fast, maintainable builds
+                </li>
+                <li data-i18n="positioning.point3">
+                  Clean handoff + long-term support
+                </li>
+              </ul>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -105,6 +150,7 @@
                 Scalable, fast, and reliable web builds.
               </p>
             </div>
+
             <div class="card">
               <h3 class="card__title" data-i18n="services.1.title">
                 UX/UI Systems Design
@@ -113,6 +159,7 @@
                 Clear interfaces that feel premium and convert.
               </p>
             </div>
+
             <div class="card">
               <h3 class="card__title" data-i18n="services.2.title">
                 Automation & Integration
@@ -138,11 +185,85 @@
             </p>
           </div>
 
-          <div class="steps">
-            <div class="step" data-i18n="approach.steps.0">Strategy</div>
-            <div class="step" data-i18n="approach.steps.1">System Design</div>
-            <div class="step" data-i18n="approach.steps.2">Development</div>
-            <div class="step" data-i18n="approach.steps.3">Optimization</div>
+          <div class="steps" id="approachSteps">
+            <button
+              class="step"
+              type="button"
+              aria-expanded="true"
+              aria-controls="panel-strategy"
+              data-step="0"
+            >
+              <span class="step__label" data-i18n="approach.steps.0"
+                >Strategy</span
+              >
+            </button>
+
+            <div
+              class="step__panel is-open"
+              id="panel-strategy"
+              aria-hidden="false"
+            >
+              <p class="step__panelText" data-i18n="approach.details.strategy">
+                Positioning, goals, and conversion mapping to align the build
+                with outcomes.
+              </p>
+            </div>
+
+            <button
+              class="step"
+              type="button"
+              aria-expanded="false"
+              aria-controls="panel-system"
+              data-step="1"
+            >
+              <span class="step__label" data-i18n="approach.steps.1"
+                >System Design</span
+              >
+            </button>
+
+            <div class="step__panel" id="panel-system" aria-hidden="true">
+              <p class="step__panelText" data-i18n="approach.details.system">
+                Structure, UI system, and key flows designed for clarity and
+                speed.
+              </p>
+            </div>
+
+            <button
+              class="step"
+              type="button"
+              aria-expanded="false"
+              aria-controls="panel-dev"
+              data-step="2"
+            >
+              <span class="step__label" data-i18n="approach.steps.2"
+                >Development</span
+              >
+            </button>
+
+            <div class="step__panel" id="panel-dev" aria-hidden="true">
+              <p class="step__panelText" data-i18n="approach.details.dev">
+                Clean, maintainable code with performance and responsive
+                built-in.
+              </p>
+            </div>
+
+            <button
+              class="step"
+              type="button"
+              aria-expanded="false"
+              aria-controls="panel-opt"
+              data-step="3"
+            >
+              <span class="step__label" data-i18n="approach.steps.3"
+                >Optimization</span
+              >
+            </button>
+
+            <div class="step__panel" id="panel-opt" aria-hidden="true">
+              <p class="step__panelText" data-i18n="approach.details.opt">
+                QA, polish, and iteration to improve conversion and UX.
+              </p>
+            </div>
           </div>
         </div>
       </section>
